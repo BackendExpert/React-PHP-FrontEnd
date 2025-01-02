@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import InputDefault from '../../components/Form/InputDefault'
 import DefualtBtn from '../../components/Buttons/DefualtBtn';
+import axios from 'axios';
 
 const Login = () => {
     const [LoginData, SetLoginData] = useState({
-        username: '',
+        email: '',
         password: ''
     })
 
@@ -15,6 +16,19 @@ const Login = () => {
           [name]: value
         }));
     };
+
+    const headleLogin = async (e) => {
+        e.preventDefault();
+        try{
+            const res =await axios.post(import.meta.env.VITE_APP_API + '/auth/login', LoginData)
+            // .then(res => {
+            //     if(res.data.)
+            // })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 
   return (
     <div className='bg-gray-200 min-h-screen'>
@@ -27,14 +41,14 @@ const Login = () => {
                     <div className="">
                         <form action="" method="post">
                             <div className="py-4">
-                                <p className="mb-4">Username: </p>
+                                <p className="mb-4">Email: </p>
                                 <InputDefault 
-                                    type={'text'}
-                                    name={'username'}
-                                    value={LoginData.username}
+                                    type={'email'}
+                                    name={'email'}
+                                    value={LoginData.email}
                                     onChange={handleInputChange}
                                     required={true}
-                                    placeholder={'Enter Username'}
+                                    placeholder={'Enter Email Address'}
                                 />
                             </div>
 
@@ -54,6 +68,7 @@ const Login = () => {
                                 <DefualtBtn btntype={'submit'} btnvalue={'Login'}/>
                             </div>
                         </form>
+                        <div className="">Don't have an Account ? <a href="/SignUp" className='text-blue-500 font-semibold'>Create Account</a></div>
                     </div>
                 </div>
             </div>
