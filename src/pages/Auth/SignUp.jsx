@@ -36,7 +36,7 @@ const SignUp = () => {
             <div className="w-full">
                 <div className="bg-white p-4">
                     <h1 className="text-gray-500 text-xl font-semibold uppercase text-center">Create Account</h1>
-                    <form action="" method="post">
+                    <form onSubmit={headleCreateAccount} method="post">
                         <div className="my-4">
                             <h1 className="py-2">Username: </h1>
                             <InputDefault 

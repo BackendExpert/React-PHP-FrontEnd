@@ -39,7 +39,7 @@ const Login = () => {
                     <h1 className="text-gray-500 text-center font-semibold text-xl uppercase mb-4">Login Here</h1>
 
                     <div className="">
-                        <form action="" method="post">
+                        <form onSubmit={headleLogin} method="post">
                             <div className="py-4">
                                 <p className="mb-4">Email: </p>
                                 <InputDefault 
